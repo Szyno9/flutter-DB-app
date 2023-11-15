@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tye1/components/entry_card.dart';
 import 'package:tye1/database/database_helper.dart';
 import 'package:tye1/database/entry_model.dart';
 
@@ -10,6 +11,11 @@ class SquarePage extends StatefulWidget {
 }
 
 class _SquarePageState extends State<SquarePage> {
+void updateState()
+{
+  setState(() {});
+}
+
   @override
   Widget build(BuildContext context) {
     print("im in square");
@@ -25,7 +31,7 @@ class _SquarePageState extends State<SquarePage> {
               if (snapshot.data != null) {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
-                  itemBuilder: (context, index) => Text(snapshot.data![index].toString())
+                  itemBuilder: (context, index) => EntryCard(entry: snapshot.data![index], onDelete: updateState)
                 );
               }
             }
